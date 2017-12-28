@@ -1,0 +1,10 @@
+<div class ="container">
+
+<p>Username: {{ user }}</p>
+
+	<ul>
+   {% for obj in object_list %} 
+   <li>{{ obj.description }}</li>
+   {% endfor %}
+  </ul>
+</div>

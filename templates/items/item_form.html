@@ -1,0 +1,22 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block title %}New Base Book{% endblock title %}
+{% block body %}
+
+<div class="container">
+
+
+<hr>
+<div class="d-flex justify-content-center">
+<form method = 'POST'>{% csrf_token %}
+
+  {{ form.as_p}}
+  <!-- <input type="text" name="name" placeholder="Your title"><br/>
+  <input type="text" name="location" placeholder="Location"><br/>
+  <input type="text" name="category" placeholder="Category"><br/> -->
+  <button type="submit">Save</button>
+</form>
+</div>
+</div>
+{% endblock  %}

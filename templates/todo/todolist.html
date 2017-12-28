@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+{% block body %}
+<html>
+    <head>
+   
+
+        <title>Operations Panel</title>
+
+        {% load static %}
+      
+      
+<div class="container">   
+    </head>
+    <body ng-app="toDo" ng-controller="toDoController">
+        <h2>Control de operaciones</h2>
+      
+        <hr>
+<div class="col-sm-6" style="background-color:#FFFFFF;">
+
+        <form ng-submit="todoAdd()">
+            <input type="text" ng-model="todoInput" placeholder="Add a new to do...">
+            <button type="submit" class="btn btn-primary" ng-click="saveData()">Add</button>
+         </form> 
+        
+        <br>
+        <div ng-repeat=" todo in todoList">
+            <input type="checkbox" ng-model=" todo.done"><span ng-bind=" todo.todoText"></span>
+            <hr style="margin: 0">
+        </div>
+        <br>
+        <p>
+         <button type="submit" class="btn btn-primary" ng-click="remove()">Done</button>
+        </p>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+       <!--  <script src="{% static 'js/todolist.js' %}"></script> -->
+       <script src="{% static 'todolist/js/todolist.js' %}"></script>
+
+    </body>
+</div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %} 
+
+{% block head %}
+<title>Profile</title>
+{% endblock %}
+
+{% block  body %}
+<div class ="container">
+
+Bienvenido {{user.first_name}}{{user.last_name}}, aqui podras administrar todas tus compras y controlar que información quieres compartir 
+<hr>
+	{% if user.userprofile.image %}
+	<img src="{{ user.userprofile.image }}" width="240"
+	>
+	{% endif %}
+	<p>Username: {{ user }}</p>
+	<p>Email: {{ user.email }}</p>
+	<p>Contacto : {{ user.userprofile.phone }}</p>
+	<p>City : {{ user.userprofile.city }}</p>
+
+	<p> {{ user.b2cprofile.business_name }}</p>
+	</p>
+</div>
+{% endblock %}

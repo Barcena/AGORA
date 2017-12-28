@@ -1,0 +1,26 @@
+{% extends  'base.html' %}
+
+{% block body %}
+
+
+
+<!-- Form Name -->
+
+
+
+<div class="d-flex justify-content-center">
+	
+	<fieldset>
+	<h1>Welcome to AGORAD</h1>
+	<p>
+		Find out what the world has to offer 
+	</p>
+
+	<form method="post">
+		 {% csrf_token %} 			<!-- crear un tolken para que sea seguro hacer el login en la pagina es obligatorio-->
+		 {{form.as_p}}
+		 <button type="submit" class="btn btn-primary"> Sign Up</button>
+	</form>
+	</fieldset>
+</div>
+	{% endblock %}

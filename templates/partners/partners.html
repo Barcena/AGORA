@@ -1,0 +1,46 @@
+{% extends 'base.html' %} 
+
+{% block head %}
+<title>Partners</title>
+{% endblock %}
+
+{% block  body %}
+<div class ="container">
+	<h2>Partners</h2>
+  <p>Encuentra los mejores servicios para hacer crecer tu negocio a trevés de nuestra red de partners</p>
+   <hr>
+<div class="container-fluid">
+  <div class="row">
+{% for partner in partners %}
+
+
+  
+    <div class="col-lg-4">
+      <div class="card" style="margin-bottom: 30px">
+        <img class="card-img-top" src="https://d1gyfhtoityo9s.cloudfront.net/users/profile/profile-avatar.png" style="height: 220px">
+        <div class="card-block" style="margin: 10px">
+          <h4 class="card-title">{{ partner.partner_name }}</h4>
+          <h6 class="card-subtitle mb-2 text-muted">{{ partner.description }}</h6>
+          <p class="card-text">{{ partner.promotion }}</p>
+          <a href="{{ partner.webpage }}" class="btn btn-primary">Webpage</a>
+        </div>
+      </div>
+    </div>
+  
+
+{% endfor %}
+	<!--
+ 
+ <div class="d-flex flex-row"  >
+  <div class="card" style="width: 20rem;">
+  <div class="card-block" style="margin: 20px">
+    <h4 class="card-title">{{ partner.partner_name }}</h4>
+    <p class="card-text">{{ partner.description }}</p>
+    <a href="{{ partner.webpage }}" class="btn btn-primary">Webpage</a>
+  </div>
+</div> 
+
+	--></div>
+	</div>
+</div>
+{% endblock %}

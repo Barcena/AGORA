@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+
+{% block head_title %}Menu Items | {{ block.super}}{% endblock head_title %}
+
+{% block body %}
+<div class="container">
+<div class='row'>
+<div class='col-sm-6 col-sm-offset-3'>
+<h2>{{ object.name }}</h2>
+{% if user == item.user %}
+<a class="text-muted"  href="/items/{{item.pk}}/edit/">Edit</a>
+{% endif %}
+<img class="card-img-top" src="http://eee.pes.edu/wp-content/uploads/2016/03/default.jpg" style="height: 500px">
+
+<hr>
+<p>Price: {{ object.price }}</p>
+<p>Location: {{ object.business }}</p>
+<p>Dsscription: {{ object.description }}</p>
+<p>Extra Info: {{ object.extra_info }}</p>
+<p>Politics: {{ object.politicas }}</p>
+</div>
+</div>
+</div>
+
+{% endblock %}
+
