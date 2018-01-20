@@ -8,7 +8,30 @@ from django.urls import reverse
 
 
 
-
+B_CATEGORIES = (
+    ("Comida y Bebida","Comida y Bebida"),
+    ("Salud y Bienestar","Salud y Bienestar"),
+    ("Ropa y Accesorios","Ropa y Accesorios"),
+    ("Energía","Energía"),
+    ("Arte","Arte"),
+    ("Artículos para el Hogar","Aartículos para el Hogar"),
+    ("Artículos para Oficina","Artículos para Oficina"),
+    ("Atículos Electrónicos","Artículos Electrónicos"),
+    ("Juguetes","Juguetes"),
+    ("Automóviles","Automóviles"),
+    ("Ventas al por Menor","Ventas al por Menor"),
+    ("Libros","Libros"),
+    ("Serivicios Publicitarios","Servicios Publicitarios"),
+    ("Cosmética y Cuidado Personal","Cosmética y Cuidado Personal"),
+    ("Artículos Deportivos","Artículos Deportivos"),
+    ("Servicios de Limpieza","Sercicios de Limpieza"),
+    ("Ventas al por Mayor","Ventas al por Mayor"),
+    ("Servicios Empresariales","Servicios Empresariales"),
+    ("Servicios de Paquetería","Servicios de Paquetería"),
+    ("Servicios Financieros","Servicios Financieros"),
+    ("Servicios Bancarios","Servicios Bancarios"),
+    ("Organización de Eventos","Organizaciónde de Eventos"),
+)
 
 '''class UserProfileManager(models.Manager):
 	def  get_queryset(self):
@@ -26,7 +49,9 @@ class B2cProfile(models.Model):
 	phone 			= models.IntegerField(default=0)
 	apertura		= models.CharField(max_length=100, default='')
 	cierre 			= models.CharField(max_length=100, default='')
+	category		= models	
 	slug            = models.SlugField(null=True, blank=True)
+	category      = models.CharField(max_length=50,choices= B_CATEGORIES)
 	
 	def __str__(self):
 			return self.business_name 

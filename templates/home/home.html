@@ -66,9 +66,11 @@
         <div class="card-block" style="margin: 10px">
           </a>
 
-          <h5 class="card-text">{{ obj.business_name }}</h5>
-          <small class="card-subtitle mb-2 text-muted">{{ obj.location }}</small>
-          <p class="card-text">{{ obj.description }}</p>
+          <h5 class="card-text">{{ obj.business_name   }}<small class="card-subtitle text-muted" style="margin: 10px">{{ obj.category }}</small></h5>
+
+          <small class="card-subtitle mb-2 text-muted
+          ">{{ obj.location }}</small>
+          <p class="card-text text-truncate">{{ obj.description }}</p>
           
         </div>
       </div>

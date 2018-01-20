@@ -43,35 +43,60 @@
 
 
 
-<div class ="container">
 <div class="col-sm-6" style="background-color:#FFFFFF;">
 <!-- <p>Owner: {{ b2profile.owner }}</p> -->
-
-<p>	<h2 >{{ b2cprofile.business_name }}</h2>
+<div class="row">
+<h2 >{{ b2cprofile.business_name }}
 {% if user == b2cprofile.owner %}
-<a class="text-muted"  href="/business/{{b2cprofile.slug}}/edit/">Edit</a>
+<h6><a class=" text-muted"  href="/business/{{b2cprofile.slug}}/edit/">Edit</a></h6>
 {% endif %}
-</p>
+</h2>
+</div>
+
+{% if request.user.is_authenticated %}
+<form class='form' method='POST'> {% csrf_token %}
+<input type='hidden' name='username' />
+<button class='btn btn-primary btn-sm'>Follow</button>
+</form>
+{% endif %}
+
   <hr >
-
+  <p class=" text-muted">{{ b2cprofile.category }}</p>
 	<p >{{ b2cprofile.description }}</p>
+
   <hr>
+  <p>Location : {{ b2cprofile.location }}</p> 
+  <p>Contacto {{ b2cprofile.phone }}</p>
 	<p>Site: {{ b2cprofile.website}}</p>
-	<p>Contacto {{ b2cprofile.phone }}</p>	
-	<p>Location : {{ b2cprofile.location }}</p>
 	<p>Horario de servicio {{ b2cprofile.apertura }}-{{ b2cprofile.cierre }}</p>
+
+
+<label for="input-2" class="control-label">Rate This</label>
+<input id="input-2" name="input-2" value="2.5" class="rating-loading">
+<script>
+$(document).on('ready', function(){
+    $('#input-2').rating({
+        step: 1,
+        starCaptions: {1: 'Very Poor', 2: 'Poor', 3: 'Ok', 4: 'Good', 5: 'Very Good'},
+        starCaptionClasses: {1: 'text-danger', 2: 'text-warning', 3: 'text-info', 4: 'text-primary', 5: 'text-success'}
+    });
+});
+</script>
 </div>
 
-</div>
 <hr>
 
 <div class="container-fluid">
   <div class="row">
 
  
+{% block content %}
 
+{% include 'items/item_list.html' %} 
+
+{% endblock %} 
  
- {% for rest in user.item_set.all %}
+ {% for rest in user.b2cprofile.item_set.all %}
   <a href="/items/{{rest.pk}}/">
     <div class="col-lg-4">
       <div class="card" style="margin-bottom: 30px">
@@ -109,10 +134,5 @@
 
 
 
-{% block content %}
-
-{% include 'items/item_list.html' %} 
-
-{% endblock %} 
 
 {% endblock %}

@@ -29,7 +29,7 @@ class BusinessCreateForm(forms.ModelForm):
 			'phone' ,
 			'apertura', 
 			'cierre', 
-			# 'categoria',
+			'category',
 
          
         ]
